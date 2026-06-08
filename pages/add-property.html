@@ -1,12 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Property</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/property.css">
+    <!-- <link rel="stylesheet" href="property.css"> -->
 </head>
+
 <body>
-    <h1>Add Property Page</h1>
+
+    <header>
+        <div class="logo">
+            <div class="logo-box">SW</div>
+            <span>Shared Workspace</span>
+        </div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="my-properties.html">My Properties</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span id="ownerName">Owner</span>
+            <span>|</span>
+
+            <div class="dropdown">
+                <a href="add-workspace.html">Add Workspace</a>
+
+                <a href="../index.html" onclick="sessionStorage.clear()">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="title">
+            <h1>Add New Property</h1>
+            <p>Add the details of your property to list it on Shared Workcpace</p>
+        </div>
+
+        <div class="mainCard">
+
+            <div class="innerCard">
+                <label>Address</label>
+                <input id="address" placeholder="Enter property address" required>
+            </div>
+
+            <div class="innerCard">
+                <label>Neighborhood</label>
+                <input id="neighborhood" placeholder="Enter neighborhood" required>
+            </div>
+
+            <div class="innerCard">
+                <label>Square Feet</label>
+                <input type="number" id="squareFeet" placeholder="Enter square feet" required>
+            </div>
+
+            <div class="innerCard">
+                <label>🚗 Parking Garage</label>
+                <div class="radio-group">
+                    <h5><input type="radio" name="parking" value="yes"> Yes</h5>
+                    <h5><input type="radio" name="parking" value="no"> No</h5>
+                </div>
+            </div>
+
+            <div class="innerCard">
+                <label>🚌 Public Transportation</label>
+                <div class="radio-group">
+                    <h5><input type="radio" name="transit" value="yes"> Yes</h5>
+                    <h5><input type="radio" name="transit" value="no"> No</h5>
+                </div>
+            </div>
+
+
+            <button id="addPropertyBtn">+ Add Property</button>
+
+        </div>
+
+
+        <div id="status">
+            <p id="statusMessage"></p>
+        </div>
+    </main>
+
+
+
+    <footer>
+        <p>© 2026 Shared Workspace. Group - 7</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../scripts/property.js"></script>
+
+    <!-- <script src="data.js"></script>
+<script src="property.js"></script> -->
+
 </body>
+
+
+
 </html>
