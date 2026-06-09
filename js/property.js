@@ -63,7 +63,7 @@ async function addProperty() {
 
     properties.push(saveProp);
 
-    $("#statusMessage").text("Property at has been added.");
+    $("#statusMessage").text("Property at " + address + " has been added.");
 
     $("#address").val("");
     $("#neighborhood").val("");
@@ -71,5 +71,5 @@ async function addProperty() {
 
 }
 
-console.log(window.properties);
+// console.log(window.properties);
 
