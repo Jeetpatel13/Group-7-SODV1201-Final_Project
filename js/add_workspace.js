@@ -15,7 +15,6 @@ $(document).ready(function () {
 
     $("#ownerName").text(currentUser.firstName);
 
-<<<<<<< Updated upstream
     $(".user-menu").click(function () {
         $(".dropdown").toggle();
     });
@@ -23,12 +22,11 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-=======
+
      $("#user-menu").click(function () {
         $("#dropdown").toggle();
     });
 
->>>>>>> Stashed changes
 
     // Populate properties owned by current user
     for (let i = 0; i < properties.length; i++) {

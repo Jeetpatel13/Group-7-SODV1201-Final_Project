@@ -86,11 +86,9 @@ header nav a:hover {
 }
 
 
-<<<<<<< Updated upstream
-.dropdown a {
-=======
+
+
 #dropdown a {
->>>>>>> Stashed changes
     display: block;
     padding: 12px 20px;
     color: black;
