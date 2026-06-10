@@ -1,0 +1,71 @@
+//used notes from class and also ones from previous semester
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Shared Workspace</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <header> 
+        <div class="logo"> 
+            <div class="logo-box">SW</div> 
+            <span>Shared Workspace</span> 
+        </div> 
+        <nav> 
+            <a href="../index.html">Home</a> 
+            <a href="listings.html">Listings</a> 
+            <a href="register.html">Register</a> 
+            <a href="login.html">Login</a> 
+        </nav> 
+    </header>
+
+    <div class="register-container">
+        <h2>Create Your Account</h2>
+        <p>Join Shared Workspace and get started.</p>
+
+        <form id="registration-form">
+            <div class="form-field">
+                <label>First Name</label>
+                <input type="text" id="first-name" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="form-field">
+                <label>Last Name</label>
+                <input type="text" id="last-name" placeholder="Enter your last name" required>
+            </div>
+
+            <div class="form-field">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-field">
+                <label>Phone</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-field">
+                <label>Role</label>
+                <select id="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="renter">Renter (Looking for Workspace)</option>
+                    <option value="owner">Owner (Hosting Properties)</option>
+                </select>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="btn-signup">Sign Up</button>
+                <button type="button" id="btn-add-user" class="btn-add">Add User</button>
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
