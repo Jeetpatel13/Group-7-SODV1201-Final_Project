@@ -4,9 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Workspace</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/add_workspace.css">
 </head>
 <body>
-    <h1>Add Workspace Page</h1>
+
+    <header>
+        <div class="logo">
+            <div class="logo-box">SW</div>
+            <span>Shared Workspace</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="my-properties.html">My Properties</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span id="ownerName">Owner</span>
+            <span>|</span>
+            <div class="dropdown">
+                <a href="add-workspace.html" class="active">Add Workspace</a>
+                <a href="index.html" onclick="sessionStorage.clear()">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <a href="my-properties.html">My Properties</a> / Add Workspace
+        </div>
+
+        <div class="title">
+            <h1>Add Workspace</h1>
+            <p>Fill in the details below to add a new workspace.</p>
+        </div>
+
+        <div class="mainCard">
+            <div class="innerCard">
+                <label for="propertySelect">Property *</label>
+                <select id="propertySelect" required>
+                    <option value="" disabled selected>Select a property</option>
+                </select>
+            </div>
+
+            <div class="innerCard">
+                <label for="workspaceType">Workspace Type *</label>
+                <select id="workspaceType" required>
+                    <option value="" disabled selected>Select workspace type</option>
+                    <option value="Meeting Room">Meeting Room</option>
+                    <option value="Private Office">Private Office</option>
+                    <option value="Open Desk">Open Desk</option>
+                </select>
+                <small class="helper-text">Options: Meeting Room / Private Office / Open Desk</small>
+            </div>
+
+            <div class="innerCard">
+                <label for="seatingCapacity">Seating Capacity *</label>
+                <input type="number" id="seatingCapacity" placeholder="Enter number of seats" min="1" required>
+            </div>
+
+            <div class="innerCard">
+                <label>Smoking Allowed *</label>
+                <div class="radio-group">
+                    <h5><input type="radio" name="smoking" value="yes"> Yes</h5>
+                    <h5><input type="radio" name="smoking" value="no"> No</h5>
+                </div>
+            </div>
+
+            <div class="innerCard">
+                <label for="availabilityDate">Availability Date *</label>
+                <input type="date" id="availabilityDate" required>
+            </div>
+
+            <div class="innerCard">
+                <label for="leaseTerm">Lease Term *</label>
+                <select id="leaseTerm" required>
+                    <option value="" disabled selected>Select lease term</option>
+                    <option value="Day">Day</option>
+                    <option value="Week">Week</option>
+                    <option value="Month">Month</option>
+                </select>
+                <small class="helper-text">Options: Day / Week / Month</small>
+            </div>
+
+            <div class="innerCard">
+                <label for="price">Price per Lease Term *</label>
+                <input type="number" id="price" placeholder="Enter price" min="0" required>
+                <small class="helper-text">Enter amount in your currency</small>
+            </div>
+
+            <button id="addWorkspaceBtn">⊕ Add Workspace</button>
+        </div>
+
+        <div id="status" class="status-container" style="display: none;">
+            <div class="status-content">
+                <span class="success-icon">✓</span>
+                <div>
+                    <h4 id="statusTitle">Workspace added successfully!</h4>
+                    <p id="statusMessage">Your workspace has been added and is now listed.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Shared Workspace. Group - 7</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/add_workspace.js"></script>
 </body>
 </html>

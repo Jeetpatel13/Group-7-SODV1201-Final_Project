@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f9fa;
+    color: #171616;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: white;
+    border-bottom: 1px solid #bdbcbc;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.logo-box {
+    width: 34px;
+    height: 34px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    color: rgb(70, 69, 69);
+    font-size: 15px;
+}
+
+header nav a:hover {
+    color: black;
+}
+
+/* USER MENU */
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 115%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 180px;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background: #f5f5f5;
+}
+
+/* MAIN */
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.title h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.title p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* FORM CARD */
+
+.mainCard {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(20, 20, 20, 0.06);
+}
+
+.innerCard {
+    margin-bottom: 20px;
+}
+
+.innerCard label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.innerCard input,
+.innerCard select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+}
+
+.innerCard input::placeholder {
+    color: #aaa;
+}
+
+/* HELPER TEXT (Added for lease/type hint descriptions) */
+.helper-text {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* RADIO BUTTONS */
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 8px;
+}
+
+.radio-group h5 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.radio-group input {
+    margin-right: 5px;
+}
+
+/* BUTTON */
+
+#addWorkspaceBtn {
+    width: 100%; /* Modified to full width to match Add Property */
+    background: #2c2c2c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#addWorkspaceBtn:hover {
+    background: #444;
+}
+
+/* STATUS */
+
+#status {
+    margin-top: 20px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 14px;
+}
+
+#statusMessage {
+    margin: 0;
+}
+
+/* FOOTER */
+
+footer {
+    background: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 14px;
+}
