@@ -86,9 +86,10 @@ header nav a:hover {
     overflow: hidden;
 }
 
-.dropdown.show {
+/* .dropdown.show {
     display: block;
-}
+} */
+
 
 .dropdown a {
     display: block;

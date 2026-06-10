@@ -2,13 +2,15 @@
 // 1. first push test data into global arrays from data.js properties.push(     { id: 101, ownerId: 1, address: "123 Main St", neighborhood: "Downtown", squareFeet: 500, parking: "yes", pTransit: "no" },     { id: 102, ownerId: 1, address: "456 Oak Ave", neighborhood: "Uptown", squareFeet: 800, parking: "no", pTransit: "yes" } ); workspaces.push(     { id: 201, propertyId: 101, type: "Meeting Room", seating: 4, smokingAllowed: "no", availabilityDate: "2026-07-01", leaseTerm: "Month", price: 500 } ); // 2. set fake logged in user sessionStorage.setItem("currentUser", JSON.stringify({     id: 1,     firstName: "John",     role: "owner" }));
  
 
-var savedUser = sessionStorage.getItem('currentUser');
-var currentUser = JSON.parse(savedUser);
+// var savedUser = sessionStorage.getItem('currentUser');
+// var currentUser = JSON.parse(savedUser);
 
 // Prevent errors if nobody is logged in
-if (!currentUser) {
-    window.location.href = "../index.html";
-}
+// if (!currentUser) {
+//     window.location.href = "index.html";
+// }
+
+
 
 $(document).ready(function () {
 
@@ -97,3 +99,19 @@ $(document).ready(function () {
     });
 
 });
+
+function checkLogin() {
+
+    const saved = localStorage.getItem('currentUser');
+
+    if (!saved) {
+        window.location.href = '../index.html';
+        return;
+    }
+
+    currentUser = JSON.parse(saved);
+
+    if (currentUser.role !== 'owner') {
+        window.location.href = 'listings.html';
+    }
+}
