@@ -1,0 +1,157 @@
+/* gemini AI was used to check standard layout properties for modern flexbox header setups 
+to fix alignment bugs between the logo container and navigation links.*/
+
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* This turns the "SW" text into the clean box from design */
+.logo-box {
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Changes link color when hovering over them */
+nav a:hover {
+    color: #666;
+}
+
+
+
+/* Hero layout properties */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 2px;
+}
+
+.hero .tagline {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.hero .description {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    color: #666;
+    line-height: 1.5;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-outline {
+    border: 1px solid #333;
+    color: #333;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.graphic-placeholder {
+    margin: 30px auto;
+    max-width: 500px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    color: #999;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Three Column Grid Features Layout */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.features-sub {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.features-columns {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.col {
+    max-width: 240px;
+    text-align: center;
+}
+
+.col-icon {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.col h4 {
+    margin: 10px 0;
+    color: #222;
+}
+
+.col p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.85rem;
+    color: #999;
+}
