@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Interactive matching client credential submission handler
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const emailValue = document.getElementById('email').value.trim();
         const passwordValue = passwordInput.value.trim();
 
@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (emailValue === "owner@workspace.com" && passwordValue === "password123") {
             errorAlert.style.display = "none";
             alert("Login Successful! Redirecting to your active listings...");
-            
+
             localStorage.setItem("userLoggedIn", "true");
             localStorage.setItem("userRole", "Owner");
-            
-            window.location.href = "../add-property.html";
+
+            window.location.href = "../pages/add-property.html";
         } else {
             // Keep container styling intact and show validation state
             errorAlert.style.display = "flex";
