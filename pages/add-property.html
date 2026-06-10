@@ -1,3 +1,5 @@
+<!-- Used class notes and code given by proffesor in term 1 and 2 to make this html file-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Property</title>
     <link rel="stylesheet" href="../css/property.css">
-    <!-- <link rel="stylesheet" href="property.css"> -->
+
 </head>
 
 <body>
@@ -23,15 +25,15 @@
             <a href="my-properties.html">My Properties</a>
         </nav>
 
-        <div class="user-menu">
+        <div id="user-menu">
             <span>👤</span>
             <span id="ownerName">Owner</span>
-            <span>|</span>
+            <span>⬇︎</span>
 
-            <div class="dropdown">
+            <div id="dropdown">
                 <a href="add-workspace.html">Add Workspace</a>
 
-                <a href="../index.html" onclick="sessionStorage.clear()">Logout</a>
+                <a href="../index.html">Logout</a>
             </div>
         </div>
     </header>
@@ -44,7 +46,7 @@
         </div>
 
         <div class="mainCard">
-
+            <!-- Took help from W3Schools for using Label tag for the headings of the inputs -->
             <div class="innerCard">
                 <label>Address</label>
                 <input id="address" placeholder="Enter property address" required>
@@ -98,8 +100,7 @@
     <script src="../js/data.js"></script>
     <script src="../js/property.js"></script>
 
-    <!-- <script src="data.js"></script>
-<script src="property.js"></script> -->
+
 
 </body>
 
