@@ -76,14 +76,19 @@ header nav a:hover {
 .dropdown {
     display: none;
     position: absolute;
-    top: 115%;
-    right: 0;
+    top: 110%;
+    right: 0px;
     background: white;
     border: 1px solid #ddd;
     border-radius: 8px;
-    min-width: 180px;
-    z-index: 100;
-    overflow: hidden;
+    min-width: 170px;
+}
+
+
+.dropdown a {
+    display: block;
+    padding: 12px 20px;
+    color: black;
 }
 
 /* .dropdown.show {
@@ -91,15 +96,6 @@ header nav a:hover {
 } */
 
 
-.dropdown a {
-    display: block;
-    padding: 12px 16px;
-    font-size: 14px;
-}
-
-.dropdown a:hover {
-    background: #f5f5f5;
-}
 
 /* MAIN */
 
@@ -186,7 +182,8 @@ main {
 /* BUTTON */
 
 #addWorkspaceBtn {
-    width: 100%; /* Modified to full width to match Add Property */
+    width: 100%;
+    /* Modified to full width to match Add Property */
     background: #2c2c2c;
     color: white;
     border: none;
