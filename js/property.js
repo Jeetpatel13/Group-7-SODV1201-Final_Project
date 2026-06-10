@@ -1,27 +1,21 @@
-// test data
-// let currentUser = {
-//     id: 1,
-//     firstName: "Test Owner",
-//     role: "owner"
-// };
-
+// Using jquery to make this page.
 $(document).ready(async function () {
 
     checkLogin();
 
     $("#ownerName").text(currentUser.firstName);
 
-    $(".user-menu").click(function () {
-        $(".dropdown").toggleClass('show');
+    $("#user-menu").click(function () {
+        $("#dropdown").toggle();
     });
 
     $('#addPropertyBtn').click(async function () {
-        console.log("Button clicked");
         await addProperty();
     });
 
 });
 
+// Took help from Claude AI to write this function to check login of the user.
 function checkLogin() {
     const saved = sessionStorage.getItem('currentUser');
     if (!saved) {
@@ -34,6 +28,9 @@ function checkLogin() {
     }
 }
 
+
+// Using async function, jQuery, and objects to take data from user and store it to properties array.
+// Used class notes and code given by proffesor.
 async function addProperty() {
 
     let address = $("#address").val();
@@ -54,8 +51,8 @@ async function addProperty() {
     let saveProp = {
         id: generateId(),
         ownerId: currentUser.id,
-        address,
-        neighborhood,
+        address: address,
+        neighborhood: neighborhood,
         squareFeet: parseInt(squareFeet),
         parking: parking,
         pTransit: transit
@@ -63,13 +60,10 @@ async function addProperty() {
 
     properties.push(saveProp);
 
-    $("#statusMessage").text("Property at " + address + " has been added.");
+    $("#statusMessage").text("Property at has been added.");
 
     $("#address").val("");
     $("#neighborhood").val("");
     $("#squareFeet").val("");
 
 }
-
-// console.log(window.properties);
-
