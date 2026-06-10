@@ -1,0 +1,315 @@
+/* Universal Base Reset Layout Configuration */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   UNIFIED HEADER STRUCTURE
+   ========================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 14px 40px;
+    border: 1px solid #000000;
+    margin: 10px 10px 0 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.logo-box {
+    border: 1px solid #000000;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   CARD WORKSPACE ARCHITECTURE
+   ========================================== */
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.login-card {
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 460px;
+    padding: 40px 35px;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user-avatar-circle {
+    font-size: 3.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.card-header h2 {
+    font-size: 1.65rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #000000;
+}
+
+.card-header p {
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #000000;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 11px 40px 11px 38px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 0.92rem;
+    outline: none;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+.btn-submit-login {
+    width: 100%;
+    background-color: #b0b7c3;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 11px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn-submit-login:hover {
+    background-color: #9ba3b0;
+}
+
+/* ==========================================
+   ALERTS AND SEPARATORS
+   ========================================== */
+.error-alert-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff1f2;
+    border: 1px solid #000000;
+    padding: 10px 12px;
+    border-radius: 4px;
+    margin-top: 15px;
+    gap: 8px;
+}
+
+.alert-icon {
+    color: #df2146;
+    font-size: 1rem;
+}
+
+.alert-text {
+    color: #000000;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.form-divider {
+    text-align: center;
+    position: relative;
+    margin: 22px 0;
+}
+
+.form-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    z-index: 1;
+}
+
+.form-divider span {
+    background-color: #ffffff;
+    padding: 0 12px;
+    font-size: 0.8rem;
+    color: #000000;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+}
+
+.card-footer {
+    text-align: center;
+    font-size: 0.88rem;
+}
+
+.card-footer a {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   UNIFIED FOOTER LAYOUT & SOCIAL BRANDING
+   ========================================== */
+footer {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 30px 40px 15px 40px;
+    margin: 0 10px 10px 10px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h4 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.88rem;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.brand-col {
+    max-width: 280px;
+}
+
+.brand-tagline {
+    font-size: 0.88rem;
+    color: #333333;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* Social Box Grid Alignment Properties */
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-box {
+    border: 1.5px solid #000000;       
+    border-radius: 8px;                 
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000000;                     
+    font-size: 1.1rem;                  
+    transition: background-color 0.2s ease;
+}
+
+.social-box:hover {
+    background-color: #f0f2f5;          
+}
+
+.footer-bottom {
+    border-top: 1px solid #000000;
+    margin-top: 25px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #000000;
+}
