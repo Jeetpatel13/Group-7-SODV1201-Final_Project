@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 // Took help from Claude AI to write this function to check login of the user.
 function checkLogin() {
-    const saved = sessionStorage.getItem('currentUser');
+    const saved = localStorage.getItem('currentUser');
     if (!saved) {
         window.location.href = 'login.html';
         return;
