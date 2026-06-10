@@ -1,12 +1,119 @@
+<!-- Used class notes and code given by proffesor in term 1 and 2 to make this html file-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workspace Detail</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>My-Properties</title>
+    <link rel="stylesheet" href="../css/property.css">
 </head>
+
 <body>
-    <h1>My Properties Page</h1>
+    <header>
+        <div class="logo">
+            <div class="logo-box">SW</div> <span>Shared Workspace</span>
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="my-properties.html">My Properties</a>
+        </nav>
+
+        <div id="user-menu">
+            <span>👤</span>
+            <span id="ownerName">Owner</span>
+            <span>⬇︎</span>
+
+            <div id="dropdown">
+                <a href="add-property.html">Add Property</a>
+                <a href="add-workspace.html">Add Workspace</a>
+
+                <a href="../index.html">Logout</a>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="title">
+            <h1>My Properties</h1>
+            <p>Manage your properties and workspace</p>
+
+
+        </div>
+
+        <div class="addProp">
+            <a href="add-property.html" class="addPropBtn">+ Add New Property</a>
+        </div>
+
+        <div class="statCard">
+
+            <div class="stats">
+                <span>🏢</span>
+                <h3 id="numProperties">0</h3>
+                <p>Properties</p>
+            </div>
+
+            <div class="stats">
+                <span>🖥️</span>
+                <h3 id="numWorkspace">0</h3>
+                <p>Workspace</p>
+            </div>
+
+            <div class="stats">
+                <span>🏷️</span>
+                <h3 id="numListing">0</h3>
+                <p>Active Listing</p>
+            </div>
+
+            <div class="stats">
+                <span>🗓️</span>
+                <h3 id="date">00/00/0000</h3>
+                <p>Next Available</p>
+            </div>
+        </div>
+
+        <div class="mainCard">
+            <h3>Your Properties</h3>
+
+            <div class="innerCard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Address</th>
+                            <th>Sq Ft</th>
+                            <th>Workspace</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="propertiesTable">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="status">
+                <p id="statusMessage">You can add, edit or remove your properties and workspace.</p>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer>
+        <p>© 2026 Shared Workspace. Group - 7</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/my-properties.js"></script>
 </body>
+
 </html>
