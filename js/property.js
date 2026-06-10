@@ -60,6 +60,9 @@ async function addProperty() {
 
     properties.push(saveProp);
 
+    console.log(properties);
+    console.log(typeof properties);
+
     $("#statusMessage").text("Property at has been added.");
 
     $("#address").val("");
