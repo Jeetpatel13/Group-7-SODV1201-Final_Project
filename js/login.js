@@ -25,14 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Check for Demo Mock State Credentials
         if (emailValue === "owner@workspace.com" && passwordValue === "password123") {
-            errorAlert.style.display = "none";
-            alert("Login Successful! Redirecting to your active listings...");
 
-            localStorage.setItem("userLoggedIn", "true");
-            localStorage.setItem("userRole", "Owner");
+            // ✅ save currentUser to localStorage
+            localStorage.setItem("currentUser", JSON.stringify({
+                id: 1,
+                firstName: "John",
+                lastName: "Owner",
+                email: "owner@workspace.com",
+                phone: "4031234567",
+                role: "owner"
+            }));
 
             window.location.href = "my-properties.html";
-        } else {
+        }
+        else {
             // Keep container styling intact and show validation state
             errorAlert.style.display = "flex";
         }
