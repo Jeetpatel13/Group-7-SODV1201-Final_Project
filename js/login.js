@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("userLoggedIn", "true");
             localStorage.setItem("userRole", "Owner");
 
-            window.location.href = "../pages/add-property.html";
+            window.location.href = "add-property.html";
         } else {
             // Keep container styling intact and show validation state
             errorAlert.style.display = "flex";
