@@ -61,7 +61,8 @@ header nav a:hover {
 
 /* USER MENU */
 
-.user-menu {
+
+#user-menu {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -73,7 +74,7 @@ header nav a:hover {
     position: relative;
 }
 
-.dropdown {
+#dropdown {
     display: none;
     position: absolute;
     top: 110%;
@@ -85,7 +86,11 @@ header nav a:hover {
 }
 
 
+<<<<<<< Updated upstream
 .dropdown a {
+=======
+#dropdown a {
+>>>>>>> Stashed changes
     display: block;
     padding: 12px 20px;
     color: black;

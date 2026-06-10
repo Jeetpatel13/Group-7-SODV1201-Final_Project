@@ -1,5 +1,5 @@
-// Verification Logic Interactivity Script Engine
 document.addEventListener("DOMContentLoaded", () => {
+
     const loginForm = document.getElementById('loginForm');
     const passwordInput = document.getElementById('password');
     const passwordToggle = document.getElementById('passwordToggle');
@@ -18,27 +18,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Interactive matching client credential submission handler
     loginForm.addEventListener('submit', (e) => {
+
         e.preventDefault();
 
         const emailValue = document.getElementById('email').value.trim();
         const passwordValue = passwordInput.value.trim();
 
-        // Check for Demo Mock State Credentials
-        if (emailValue === "owner@workspace.com" && passwordValue === "password123") {
+        let foundUser = null;
 
-            // ✅ save currentUser to localStorage
-            localStorage.setItem("currentUser", JSON.stringify({
-                id: 1,
-                firstName: "John",
-                lastName: "Owner",
-                email: "owner@workspace.com",
-                phone: "4031234567",
-                role: "owner"
-            }));
+        for (let i = 0; i < users.length; i++) {
 
-            window.location.href = "my-properties.html";
+            if (
+                users[i].email === emailValue &&
+                users[i].password === passwordValue
+            ) {
+                foundUser = users[i];
+                break;
+            }
+        }
+
+        if (foundUser) {
+
+            sessionStorage.setItem(
+                "currentUser",
+                JSON.stringify(foundUser)
+            );
+
+            if (foundUser.role === "owner") {
+                window.location.href = "my-properties.html";
+            } else {
+                window.location.href = "listings.html";
+            }
+
         }
         else {
+
             // Keep container styling intact and show validation state
             errorAlert.style.display = "flex";
         }

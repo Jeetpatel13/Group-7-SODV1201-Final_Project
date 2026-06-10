@@ -1,28 +1,37 @@
-/* Gemini AI was used  to verify the correct event parameters */
+/* Gemini AI was used to verify the correct event parameters */
 
-document.getElementById('registration-form').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevents the browser page from reloading automatically
+document.getElementById('registration-form').addEventListener('submit', function (event) {
 
-    // Grab information from the form input boxes
+    event.preventDefault();
+
     const userData = {
-        firstName: document.getElementById('first-name').value,
-        lastName: document.getElementById('last-name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
+        id: generateId(),
+        firstName: document.getElementById('first-name').value.trim(),
+        lastName: document.getElementById('last-name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        password: document.getElementById('password').value,
+        phone: document.getElementById('phone').value.trim(),
         role: document.getElementById('role').value
     };
 
-    // Send the user data payload directly to the backend server
-    const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-    });
+    let userExists = false;
 
-    const result = await response.json();
-    
-    // Shows a pop up text alert in the browser window confirming it worked
-    alert(result.message); 
+    for (let i = 0; i < users.length; i++) {
+
+        if (users[i].email === userData.email) {
+            userExists = true;
+            break;
+        }
+    }
+
+    if (userExists) {
+        alert("User already exists with this email.");
+        return;
+    }
+
+    users.push(userData);
+
+    alert("User registered successfully!");
+
+    document.getElementById('registration-form').reset();
 });
