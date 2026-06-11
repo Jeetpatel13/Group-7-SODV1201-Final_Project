@@ -139,6 +139,18 @@ nav a.active {
     cursor: pointer;
     color: #000000;
     font-size: 0.95rem;
+    z-index: 2; /* Ensures your custom eye sits cleanly on top of the input */
+}
+
+/* Hide Microsoft Edge's native built-in eye icon completely */
+input::-ms-reveal {
+    display: none;
+}
+
+/* Hide extra native password utilities in WebKit browsers if they conflict */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+    display: none !important;
 }
 
 .btn-submit-login {
