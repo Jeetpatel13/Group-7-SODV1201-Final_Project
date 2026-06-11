@@ -1,129 +1,70 @@
-
-document.addEventListener("DOMContentLoads", () => {
-
 document.addEventListener("DOMContentLoaded", () => {
 
-
     const loginForm = document.getElementById('loginForm');
-
     const passwordInput = document.getElementById('password');
-
     const passwordToggle = document.getElementById('passwordToggle');
-
     const errorAlert = document.getElementById('errorAlert');
- 
-    // password show/hide
 
+    // Password visibility input context switcher 
     passwordToggle.addEventListener('click', () => {
-
         if (passwordInput.type === 'password') {
-
             passwordInput.type = 'text';
-
             passwordToggle.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-
         } else {
-
             passwordInput.type = 'password';
-
             passwordToggle.innerHTML = '<i class="fa-regular fa-eye"></i>';
-
         }
-
     });
- 
+
+    // Core submission authentication event handler
     loginForm.addEventListener('submit', (e) => {
-
-
-
         e.preventDefault();
 
         const emailValue = document.getElementById('email').value.trim();
         const passwordValue = passwordInput.value.trim();
 
-
-
-        e.preventDefault();
- 
-        const emailValue = document.getElementById('email').value.trim();
-
-        const passwordValue = passwordInput.value.trim();
- 
-        // find user in users array
-
-        let foundUser = users.find(function(u) {
-
+        // Modern array check condition matching against active dataset arrays
+        let foundUser = users.find(function (u) {
             return u.email === emailValue && u.password === passwordValue;
-
         });
- 
+
         if (foundUser) {
-
+            // Success State - Clear errors and write profile object locally
             errorAlert.style.display = "none";
-
- 
-            // save to sessionStorage in correct format
-
             sessionStorage.setItem("currentUser", JSON.stringify(foundUser));
- 
-            // redirect based on role
 
-            if (foundUser.role === "owner") {
-
-                window.location.href = "my-properties.html";
-
-            } else {
-
-                window.location.href = "listings.html";
-
-            }
- 
-
+            // Trigger confirmation window prior to executing page state routing
             alert("Login Successful! Redirecting to your active listings...");
 
-        let foundUser = null;
-
-
-        for (let i = 0; i < users.length; i++) {
-
-            if (
-                users[i].email === emailValue &&
-                users[i].password === passwordValue
-            ) {
-                foundUser = users[i];
-                break;
-            }
-        }
-
-        if (foundUser) {
-
-            sessionStorage.setItem(
-                "currentUser",
-                JSON.stringify(foundUser)
-            );
-
+            // Safe contextual directory routing based on individual user role accounts
             if (foundUser.role === "owner") {
                 window.location.href = "my-properties.html";
             } else {
                 window.location.href = "listings.html";
             }
-
-        }
-        else {
-
-
-            window.location.href = "my-properties.html";
-
         } else {
-
-
-            // Keep container styling intact and show validation state
-
+            // Failure State - Keep container layout bounds and expose error card block
             errorAlert.style.display = "flex";
-
         }
-
     });
 
 });
- 
+
+
+
+
+ /* 
+   OFFICIAL DEVELOPMENT REFERENCES
+   
+   1. Event Listeners & DOM Lifecycle
+      - MDN Web Docs: Document: DOMContentLoaded event
+      - URL: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+   
+   2. Array Search Architecture
+      - MDN Web Docs: Array.prototype.find()
+      - URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+   
+   3. Session Client-Side Storage
+      - MDN Web Docs: Window.sessionStorage
+      - URL: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+   */
