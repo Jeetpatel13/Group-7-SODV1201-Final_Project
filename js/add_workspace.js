@@ -1,6 +1,6 @@
 // test data 
 // 1. first push test data into global arrays from data.js properties.push(     { id: 101, ownerId: 1, address: "123 Main St", neighborhood: "Downtown", squareFeet: 500, parking: "yes", pTransit: "no" },     { id: 102, ownerId: 1, address: "456 Oak Ave", neighborhood: "Uptown", squareFeet: 800, parking: "no", pTransit: "yes" } ); workspaces.push(     { id: 201, propertyId: 101, type: "Meeting Room", seating: 4, smokingAllowed: "no", availabilityDate: "2026-07-01", leaseTerm: "Month", price: 500 } ); // 2. set fake logged in user sessionStorage.setItem("currentUser", JSON.stringify({     id: 1,     firstName: "John",     role: "owner" }));
- 
+
 
 // var savedUser = sessionStorage.getItem('currentUser');
 // var currentUser = JSON.parse(savedUser);
@@ -10,15 +10,23 @@
 //     window.location.href = "index.html";
 // }
 
-
-
 $(document).ready(function () {
+    checkLogin();
 
     $("#ownerName").text(currentUser.firstName);
 
     $(".user-menu").click(function () {
-        $(".dropdown").toggleClass("show");
+        $(".dropdown").toggle();
     });
+
+});
+
+$(document).ready(function () {
+
+     $("#user-menu").click(function () {
+        $("#dropdown").toggle();
+    });
+
 
     // Populate properties owned by current user
     for (let i = 0; i < properties.length; i++) {

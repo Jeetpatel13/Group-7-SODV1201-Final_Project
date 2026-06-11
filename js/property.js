@@ -60,8 +60,8 @@ async function addProperty() {
 
     properties.push(saveProp);
 
+    // Testing the addProperty function on console
     console.log(properties);
-    console.log(typeof properties);
 
     $("#statusMessage").text("Property at has been added.");
 

@@ -1,4 +1,8 @@
+
 document.addEventListener("DOMContentLoads", () => {
+
+document.addEventListener("DOMContentLoaded", () => {
+
 
     const loginForm = document.getElementById('loginForm');
 
@@ -29,11 +33,14 @@ document.addEventListener("DOMContentLoads", () => {
     });
  
     loginForm.addEventListener('submit', (e) => {
- 
+
+
+
         e.preventDefault();
 
         const emailValue = document.getElementById('email').value.trim();
         const passwordValue = passwordInput.value.trim();
+
 
 
         e.preventDefault();
@@ -74,12 +81,43 @@ document.addEventListener("DOMContentLoads", () => {
 
             alert("Login Successful! Redirecting to your active listings...");
 
-            localStorage.setItem("userLoggedIn", "true");
-            localStorage.setItem("userRole", "Owner");
+        let foundUser = null;
+
+
+        for (let i = 0; i < users.length; i++) {
+
+            if (
+                users[i].email === emailValue &&
+                users[i].password === passwordValue
+            ) {
+                foundUser = users[i];
+                break;
+            }
+        }
+
+        if (foundUser) {
+
+            sessionStorage.setItem(
+                "currentUser",
+                JSON.stringify(foundUser)
+            );
+
+            if (foundUser.role === "owner") {
+                window.location.href = "my-properties.html";
+            } else {
+                window.location.href = "listings.html";
+            }
+
+        }
+        else {
+
 
             window.location.href = "my-properties.html";
 
         } else {
+
+
+            // Keep container styling intact and show validation state
 
             errorAlert.style.display = "flex";
 

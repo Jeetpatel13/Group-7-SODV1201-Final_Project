@@ -1,6 +1,8 @@
 /* gemini AI was used to check standard layout properties for modern flexbox header setups 
 to fix alignment bugs between the logo container and navigation links.*/
-
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 header {
     display: flex;
