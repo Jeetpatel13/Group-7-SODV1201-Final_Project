@@ -55,14 +55,7 @@ $(document).ready(function () {
     let priceInput = $("#price").val();
 
     if (
-        selectedPropId === "" ||
-        typeInput === "" ||
-        seatingInput === "" ||
-        !smokingInput ||
-        dateInput === "" ||
-        leaseInput === "" ||
-        priceInput === ""
-    ) {
+        selectedPropId === "" || typeInput === "" ||   seatingInput === "" ||   !smokingInput ||  dateInput === "" ||  leaseInput === "" ||  priceInput === "") {
         $("#statusMessage").text("Please fill all the fields");
         return;
     }
