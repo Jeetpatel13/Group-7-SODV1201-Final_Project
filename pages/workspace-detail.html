@@ -1,12 +1,124 @@
+<!-- Used class notes and code given by proffesor in term 1 and 2 to make this html file-->
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workspace Detail</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Workspace Details</title>
+    <link rel="stylesheet" href="../css/workspace-details.css">
 </head>
+
 <body>
-    <h1>Workspace Detail Page</h1>
+
+    <header>
+        <div class="logo">
+            <div class="logo-box">SW</div>
+            <span>Shared Workspace</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="my-properties.html">My Properties</a>
+        </nav>
+
+        <div id="user-menu">
+            <span>👤</span>
+            <span id="ownerName">Owner</span>
+            <span>⬇︎</span>
+
+            <div id="dropdown">
+                <a href="add-property.html">Add Property</a>
+                <a href="add-workspace.html">Add Workspace</a>
+                <a href="index.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="backBtn">
+            <a href="listings.html">← Back to Listings</a>
+        </div>
+
+        <div class="title">
+            <h1>Workspace Details</h1>
+        </div>
+
+        <section class="card">
+            <div class="cardTitle">
+                <h2>🖥️ Workspace Details</h2>
+            </div>
+
+            <div class="cardDetails">
+
+                <div class="column">
+                    <h5>Type: <span id="workspaceType"></span></h5>
+                    <h5>Seating Capacity: <span id="capacity"></span></h5>
+                    <h5>Smoking Allowed: <span id="smoking"></span></h5>
+                </div>
+
+                <div class="column">
+                    <h5>Availability Date: <span id="availability"></span></h5>
+                    <h5>Lease Term: <span id="leaseTerm"></span></h5>
+                    <h5>Price: $<span id="price"></span></h5>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="cardTitle">
+                <h2>🏢 Property Details</h2>
+            </div>
+
+            <div class="cardDetails">
+
+                <div class="column">
+                    <h5>Address: <span id="address"></span></h5>
+                    <h5>Neighborhood: <span id="neighborhood"></span></h5>
+                    <h5>Square Feet: <span id="squareFeet"></span></h5>
+                </div>
+
+                <div class="column">
+                    <h5>Parking: <span id="parking"></span></h5>
+                    <h5>Public Transit:<span id="transit"></span></h5>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="cardTitle">
+                <h2>👤 Owner Contact Information</h2>
+            </div>
+
+            <div class="cardDetails">
+
+                <div class="column">
+                    <h5>Owner Name: <span id="owner"></span></h5>
+                    <h5>Email: <span id="email"></span></h5>
+                    <h5>Phone: <span id="phone"></span></h5>
+                </div>
+
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>© 2026 Shared Workspace. Group - 7</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/workspace-details.js"></script>
+
 </body>
+
 </html>
