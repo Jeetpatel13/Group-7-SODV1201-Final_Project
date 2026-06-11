@@ -141,7 +141,11 @@ nav a.active {
     font-size: 0.95rem;
     z-index: 2; /* Ensures your custom eye sits cleanly on top of the input */
 }
-
+/* DEVELOPER REFERENCE NOTE: 
+  The pseudo-element rules below hide native browser-specific form utilities 
+  to prevent duplication with our custom font-awesome toggle design.
+  Layout Positioning Model Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+*/
 /* Hide Microsoft Edge's native built-in eye icon completely */
 input::-ms-reveal {
     display: none;
