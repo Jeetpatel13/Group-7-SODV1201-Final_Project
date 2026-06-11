@@ -87,6 +87,7 @@ function addWorkspace() {
     $("#statusMessage").text(
         typeInput + " has been added successfully."
     );
+    $("#statusTitle").text("Workspace added successfully!");
 
     $("#propertySelect").prop("selectedIndex", 0);
     $("#workspaceType").prop("selectedIndex", 0);
