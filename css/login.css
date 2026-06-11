@@ -304,13 +304,19 @@ footer {
 }
 
 .footer-bottom {
-    border-top: 1px solid #000000;
+    border-top: 1px solid #eaeaea;
     margin-top: 25px;
     padding-top: 15px;
     text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+     color: #999;
+     background-color: #ffffff;
 }
 
 .footer-bottom p {
     font-size: 0.85rem;
     color: #000000;
 }
+
+
