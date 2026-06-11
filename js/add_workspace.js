@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
-     $("#user-menu").click(function () {
+    $("#user-menu").click(function () {
         $("#dropdown").toggle();
     });
 
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $("#addWorkspaceBtn").click(addWorkspace);
 })
 
- function addWorkspace() {
+function addWorkspace() {
 
     let selectedPropId = $("#propertySelect").val();
     let typeInput = $("#workspaceType").val();
@@ -55,8 +55,9 @@ $(document).ready(function () {
     let priceInput = $("#price").val();
 
     if (
-        selectedPropId === "" || typeInput === "" ||   seatingInput === "" ||   !smokingInput ||  dateInput === "" ||  leaseInput === "" ||  priceInput === "") {
+        selectedPropId === "" || typeInput === "" || seatingInput === "" || !smokingInput || dateInput === "" || leaseInput === "" || priceInput === "") {
         $("#statusMessage").text("Please fill all the fields");
+        $("#status").show();
         return;
     }
     else if (
@@ -64,6 +65,7 @@ $(document).ready(function () {
         priceInput < 0
     ) {
         $("#statusMessage").text("Please enter valid values");
+        $("#status").show();
         return;
     }
 
@@ -94,7 +96,7 @@ $(document).ready(function () {
     $("#availabilityDate").val("");
     $("#price").val("");
 }
-    
+
 
 
 function checkLogin() {
