@@ -156,7 +156,7 @@ main {
     color: #aaa;
 }
 
-/* HELPER TEXT (Added for lease/type hint descriptions) */
+/* HELPER TEXT */
 .helper-text {
     display: block;
     font-size: 12px;
@@ -185,7 +185,6 @@ main {
 
 #addWorkspaceBtn {
     width: 100%;
-    /* Modified to full width to match Add Property */
     background: #2c2c2c;
     color: white;
     border: none;
