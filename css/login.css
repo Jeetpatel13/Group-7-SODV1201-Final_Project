@@ -29,17 +29,19 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-weight: bold;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
+    color: #333;
 }
 
+/* This turns the "SW" text into the clean box from design */
 .logo-box {
-    border: 1px solid #000000;
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    background-color: #ffffff;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 nav {
