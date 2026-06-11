@@ -41,72 +41,68 @@ $(document).ready(function () {
         }
     }
 
-    $("#addWorkspaceBtn").click(function () {
+    $("#addWorkspaceBtn").click(addWorkspace);
+})
 
-        var selectedPropId = $("#propertySelect").val();
-        var typeInput = $("#workspaceType").val();
-        var seatingInput = $("#seatingCapacity").val();
-        var smokingInput = $("input[name='smoking']:checked").val();
-        var dateInput = $("#availabilityDate").val();
-        var leaseInput = $("#leaseTerm").val();
-        var priceInput = $("#price").val();
+ function addWorkspace() {
 
-        // Validation
-        if (
-            selectedPropId === null ||
-            typeInput === null ||
-            seatingInput === "" ||
-            smokingInput === undefined ||
-            dateInput === "" ||
-            leaseInput === null ||
-            priceInput === ""
-        ) {
+    let selectedPropId = $("#propertySelect").val();
+    let typeInput = $("#workspaceType").val();
+    let seatingInput = $("#seatingCapacity").val();
+    let smokingInput = $('input[name="smoking"]:checked').val();
+    let dateInput = $("#availabilityDate").val();
+    let leaseInput = $("#leaseTerm").val();
+    let priceInput = $("#price").val();
 
-            $("#status").show();
-            $("#statusMessage").text("Please fill out all the fields.");
-            return;
-        }
+    if (
+        selectedPropId === "" ||
+        typeInput === "" ||
+        seatingInput === "" ||
+        !smokingInput ||
+        dateInput === "" ||
+        leaseInput === "" ||
+        priceInput === ""
+    ) {
+        $("#statusMessage").text("Please fill all the fields");
+        return;
+    }
+    else if (
+        seatingInput <= 0 ||
+        priceInput < 0
+    ) {
+        $("#statusMessage").text("Please enter valid values");
+        return;
+    }
 
-        if (parseInt(seatingInput) <= 0 || parseFloat(priceInput) < 0) {
+    let newWorkspace = {
+        id: generateId(),
+        propertyId: parseInt(selectedPropId),
+        type: typeInput,
+        seating: parseInt(seatingInput),
+        smokingAllowed: smokingInput,
+        availabilityDate: dateInput,
+        leaseTerm: leaseInput,
+        price: parseFloat(priceInput)
+    };
 
-            $("#status").show();
-            $("#statusMessage").text("Please enter valid numbers.");
-            return;
-        }
+    workspaces.push(newWorkspace);
 
-        var newWorkspace = {
-            id: Date.now(),
-            propertyId: parseInt(selectedPropId),
-            type: typeInput,
-            seating: parseInt(seatingInput),
-            smokingAllowed: smokingInput,
-            availabilityDate: dateInput,
-            leaseTerm: leaseInput,
-            price: parseFloat(priceInput)
-        };
+    console.log(workspaces);
 
-        workspaces.push(newWorkspace);
+    $("#statusMessage").text(
+        typeInput + " has been added successfully."
+    );
 
-        $("#status").show();
-        $("#statusMessage").text(
-            typeInput +
-            " has been added successfully to property ID " +
-            selectedPropId +
-            "!"
-        );
+    $("#propertySelect").prop("selectedIndex", 0);
+    $("#workspaceType").prop("selectedIndex", 0);
+    $("#leaseTerm").prop("selectedIndex", 0);
+    $("#seatingCapacity").val("");
+    $('input[name="smoking"]').prop("checked", false);
+    $("#availabilityDate").val("");
+    $("#price").val("");
+}
+    
 
-        // Reset form
-        $("#propertySelect").prop("selectedIndex", 0);
-        $("#workspaceType").prop("selectedIndex", 0);
-        $("#leaseTerm").prop("selectedIndex", 0);
-
-        $("#seatingCapacity").val("");
-        $("input[name='smoking']").prop("checked", false);
-        $("#availabilityDate").val("");
-        $("#price").val("");
-    });
-
-});
 
 function checkLogin() {
 
