@@ -14,9 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* ==========================================
-   UNIFIED HEADER STRUCTURE
-   ========================================== */
+/*UNIFIED HEADER STRUCTURE */
 header {
      display: flex;
     justify-content: space-between; 
@@ -60,9 +58,7 @@ nav a.active {
     text-decoration: underline;
 }
 
-/* ==========================================
-   CARD WORKSPACE ARCHITECTURE
-   ========================================== */
+/* CARD WORKSPACE ARCHITECTURE */
 .login-page-container {
     display: flex;
     justify-content: center;
@@ -143,6 +139,22 @@ nav a.active {
     cursor: pointer;
     color: #000000;
     font-size: 0.95rem;
+    z-index: 2; /* Ensures your custom eye sits cleanly on top of the input */
+}
+/* DEVELOPER REFERENCE NOTE: 
+  The pseudo-element rules below hide native browser-specific form utilities 
+  to prevent duplication with our custom font-awesome toggle design.
+  Layout Positioning Model Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+*/
+/* Hide Microsoft Edge's native built-in eye icon completely */
+input::-ms-reveal {
+    display: none;
+}
+
+/* Hide extra native password utilities in WebKit browsers if they conflict */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+    display: none !important;
 }
 
 .btn-submit-login {
@@ -162,9 +174,7 @@ nav a.active {
     background-color: #9ba3b0;
 }
 
-/* ==========================================
-   ALERTS AND SEPARATORS
-   ========================================== */
+/* ALERTS AND SEPARATORS */
 .error-alert-box {
     display: flex;
     align-items: center;
@@ -224,9 +234,7 @@ nav a.active {
     text-decoration: underline;
 }
 
-/* ==========================================
-   UNIFIED FOOTER LAYOUT & SOCIAL BRANDING
-   ========================================== */
+/* UNIFIED FOOTER LAYOUT & SOCIAL BRANDING */
 footer {
     background-color: #ffffff;
     border: 1px solid #000000;
