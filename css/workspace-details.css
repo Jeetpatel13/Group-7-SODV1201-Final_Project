@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f9fa;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: white;
+    border-bottom: 1px solid #bdbcbc;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.logo-box {
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    color: rgb(70, 69, 69);
+    font-size: 15px;
+}
+
+
+#user-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    position: relative;
+}
+
+#dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    right: 0px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 170px;
+}
+
+
+#dropdown a {
+    display: block;
+    padding: 12px 20px;
+    color: black;
+}
+
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.backBtn {
+    margin-bottom: 25px;
+}
+
+.backBtn a {
+    display: inline-block;
+    background: white;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+
+.title {
+    margin-bottom: 25px;
+}
+
+.title h1 {
+    color: #222;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.cardTitle {
+    padding: 18px 25px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fafafa;
+}
+
+.cardTitle h2 {
+    color: #333;
+}
+
+
+.cardDetails {
+    padding: 25px;
+    display: flex;
+    gap: 60px;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h5 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.column span {
+    color: #666;
+}
+
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.9rem;
+    color: #999;
+}
