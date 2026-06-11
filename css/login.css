@@ -14,9 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* ==========================================
-   UNIFIED HEADER STRUCTURE
-   ========================================== */
+/*UNIFIED HEADER STRUCTURE */
 header {
     display: flex;
     justify-content: space-between;
@@ -59,9 +57,7 @@ nav a.active {
     text-decoration: underline;
 }
 
-/* ==========================================
-   CARD WORKSPACE ARCHITECTURE
-   ========================================== */
+/* CARD WORKSPACE ARCHITECTURE */
 .login-page-container {
     display: flex;
     justify-content: center;
@@ -161,9 +157,7 @@ nav a.active {
     background-color: #9ba3b0;
 }
 
-/* ==========================================
-   ALERTS AND SEPARATORS
-   ========================================== */
+/* ALERTS AND SEPARATORS */
 .error-alert-box {
     display: flex;
     align-items: center;
@@ -223,9 +217,7 @@ nav a.active {
     text-decoration: underline;
 }
 
-/* ==========================================
-   UNIFIED FOOTER LAYOUT & SOCIAL BRANDING
-   ========================================== */
+/* UNIFIED FOOTER LAYOUT & SOCIAL BRANDING */
 footer {
     background-color: #ffffff;
     border: 1px solid #000000;

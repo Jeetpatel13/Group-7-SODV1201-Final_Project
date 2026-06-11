@@ -29,6 +29,12 @@ document.addEventListener("DOMContentLoads", () => {
     });
  
     loginForm.addEventListener('submit', (e) => {
+ 
+        e.preventDefault();
+
+        const emailValue = document.getElementById('email').value.trim();
+        const passwordValue = passwordInput.value.trim();
+
 
         e.preventDefault();
  
@@ -47,6 +53,7 @@ document.addEventListener("DOMContentLoads", () => {
         if (foundUser) {
 
             errorAlert.style.display = "none";
+
  
             // save to sessionStorage in correct format
 
@@ -64,6 +71,14 @@ document.addEventListener("DOMContentLoads", () => {
 
             }
  
+
+            alert("Login Successful! Redirecting to your active listings...");
+
+            localStorage.setItem("userLoggedIn", "true");
+            localStorage.setItem("userRole", "Owner");
+
+            window.location.href = "my-properties.html";
+
         } else {
 
             errorAlert.style.display = "flex";
