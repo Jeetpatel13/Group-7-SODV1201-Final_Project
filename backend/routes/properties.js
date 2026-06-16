@@ -24,7 +24,7 @@ db.run(`CREATE TABLE IF NOT EXISTS properties (
 });
 
 // Geting all the properties that belongs to the particular owner.
-router.get("/properties", (req, res) => {
+router.get("/", (req, res) => {
     const ownerId = req.query.ownerId;
 
     db.all("SELECT * FROM properties WHERE ownerId = " + ownerId, (err, rows) => {
@@ -38,7 +38,7 @@ router.get("/properties", (req, res) => {
 });
 
 // Posting all the new properties to the database.
-router.post("/properties", (req, res) => {
+router.post("/", (req, res) => {
     const { ownerId, address, neighborhood, squareFeet, parking, pTransit } = req.body;
 
     db.run(`
@@ -62,7 +62,7 @@ router.post("/properties", (req, res) => {
 
 
 // Delete the property according to the id.
-router.delete("/properties/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const id = req.params.id;
 
     db.run("DELETE FROM properties WHERE id = " + id, function (err) {
