@@ -1,5 +1,6 @@
 // Took help from W3School to use "cors()"
 // Using "cors()" to allow frontend to make request to backend while on different PORT
+// Also used the code given by the professor for in-class example.
 const express = require("express");
 const cors = require("cors");
 
