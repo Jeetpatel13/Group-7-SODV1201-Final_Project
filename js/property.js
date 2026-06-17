@@ -48,25 +48,51 @@ async function addProperty() {
         return;
     }
 
-    let saveProp = {
-        id: generateId(),
-        ownerId: currentUser.id,
-        address: address,
-        neighborhood: neighborhood,
-        squareFeet: parseInt(squareFeet),
-        parking: parking,
-        pTransit: transit
-    };
+    // let saveProp = {
+    //     id: generateId(),
+    //     ownerId: currentUser.id,
+    //     address: address,
+    //     neighborhood: neighborhood,
+    //     squareFeet: parseInt(squareFeet),
+    //     parking: parking,
+    //     pTransit: transit
+    // };
 
-    properties.push(saveProp);
+    // properties.push(saveProp);
 
-    // Testing the addProperty function on console
-    console.log(properties);
+    // // Testing the addProperty function on console
+    // console.log(properties);
 
-    $("#statusMessage").text("Property at has been added.");
+    // $("#statusMessage").text("Property at has been added.");
 
-    $("#address").val("");
-    $("#neighborhood").val("");
-    $("#squareFeet").val("");
+    // $("#address").val("");
+    // $("#neighborhood").val("");
+    // $("#squareFeet").val("");
 
+    const response = await fetch("http://localhost:3000/properties", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            ownerId: currentUser.id,
+            address: address,
+            neighborhood: neighborhood,
+            squareFeet: parseInt(squareFeet),
+            parking: parking,
+            pTransit: transit
+        })
+    });
+
+    const data = await response.json();
+
+    if (data.message) {
+        $("#statusMessage").text("Property at " + address + " has been added!");
+        $("#address").val("");
+        $("#neighborhood").val("");
+        $("#squareFeet").val("");
+        $('input[type="radio"]').prop("checked", false);
+    } else {
+        $("#statusMessage").text("Error: " + data.error);
+    }
 }
