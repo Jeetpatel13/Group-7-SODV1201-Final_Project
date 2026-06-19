@@ -32,6 +32,17 @@ $(document).ready(function () {
     $("#addWorkspaceBtn").click(addWorkspace);
 });
 
+function loadProperties() {
+    fetch("http://localhost:3000/properties")
+        .then(res => res.json())
+        .then(data => {
+            properties = data;
+            populatePropertyDropdown();
+        })
+        .catch(err => {
+            console.error("Error loading properties:", err);
+        });
+}
 
     // Populate properties owned by current user
     for (let i = 0; i < properties.length; i++) {
@@ -47,7 +58,6 @@ $(document).ready(function () {
     }
 
     $("#addWorkspaceBtn").click(addWorkspace);
-})
 
 function addWorkspace() {
 
