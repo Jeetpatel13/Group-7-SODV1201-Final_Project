@@ -20,3 +20,18 @@ db.run(`
         console.log("Workspaces table ready!");
     }
 });
+
+// Get all workspaces
+router.get("/", (req, res) => {
+
+    db.all("SELECT * FROM workspaces", (err, rows) => {
+
+        if (err) {
+            return res.status(500).json({
+                error: err.message
+            });
+        }
+
+        res.json(rows);
+    });
+});
