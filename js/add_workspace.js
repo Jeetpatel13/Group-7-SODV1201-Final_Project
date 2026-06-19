@@ -29,6 +29,8 @@ $(document).ready(function () {
     $("#user-menu").click(function () {
         $("#dropdown").toggle();
     });
+    $("#addWorkspaceBtn").click(addWorkspace);
+});
 
 
     // Populate properties owned by current user
