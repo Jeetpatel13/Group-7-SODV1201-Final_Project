@@ -46,6 +46,8 @@ $(document).ready(function () {
 
 function addWorkspace() {
 
+
+
     let selectedPropId = $("#propertySelect").val();
     let typeInput = $("#workspaceType").val();
     let seatingInput = $("#seatingCapacity").val();
@@ -69,25 +71,33 @@ function addWorkspace() {
         return;
     }
 
-    let newWorkspace = {
-        id: generateId(),
-        propertyId: parseInt(selectedPropId),
-        type: typeInput,
-        seating: parseInt(seatingInput),
-        smokingAllowed: smokingInput,
-        availabilityDate: dateInput,
-        leaseTerm: leaseInput,
-        price: parseFloat(priceInput)
-    };
+   let newWorkspace = {
+    propertyId: parseInt(selectedPropId),
+    type: typeInput,
+    seating: parseInt(seatingInput),
+    smokingAllowed: smokingInput,
+    availabilityDate: dateInput,
+    leaseTerm: leaseInput,
+    price: parseFloat(priceInput)
+};
 
-    workspaces.push(newWorkspace);
-
-    console.log(workspaces);
+    fetch("http://localhost:3000/addWorkspaces", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newWorkspace)
+})
+.then(response => response.json())
+.then(data => {
 
     $("#statusMessage").text(
         typeInput + " has been added successfully."
     );
-    $("#statusTitle").text("Workspace added successfully!");
+
+    $("#status").show();
+
+    console.log(data);
 
     $("#propertySelect").prop("selectedIndex", 0);
     $("#workspaceType").prop("selectedIndex", 0);
@@ -96,6 +106,18 @@ function addWorkspace() {
     $('input[name="smoking"]').prop("checked", false);
     $("#availabilityDate").val("");
     $("#price").val("");
+})
+.catch(error => {
+
+    console.error(error);
+
+    $("#statusMessage").text(
+        "Error adding workspace."
+    );
+
+    $("#status").show();
+});
+
 }
 
 

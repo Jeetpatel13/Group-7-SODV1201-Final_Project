@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../database'); // adjust path if needed
+const db = require("../db");
 
 // GET all listings
 router.get('/', (req, res) => {

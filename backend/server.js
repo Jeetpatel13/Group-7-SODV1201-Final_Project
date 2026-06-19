@@ -17,8 +17,8 @@ app.use("/properties", propertyRoutes);
 const registerRoutes = require("./routes/register");
 const landingRoutes = require("./routes/landing");
 
-const workspaceRoutes = require("./routes/addWorkspaces");
-app.use("/workspaces", workspaceRoutes);
+const workspaceRoutes = require("./routes/addWorkspace");
+app.use("/addWorkspace", workspaceRoutes);
 
 app.use("/api", registerRoutes); // Directs to POST /api/register and POST /api/login endpoints
 app.use("/api", landingRoutes);  // Directs to GET /api/properties data loop handler
