@@ -44,20 +44,22 @@ function loadProperties() {
         });
 }
 
-    // Populate properties owned by current user
+function populatePropertyDropdown() {
+
+    $("#propertySelect").empty();
+
     for (let i = 0; i < properties.length; i++) {
 
-        if (properties[i].ownerId === currentUser.id) {
+        if (Number(properties[i].ownerId) === Number(currentUser.id)) {
 
             $("#propertySelect").append(
-                "<option value='" + properties[i].id + "'>" +
-                properties[i].address +
-                "</option>"
+                `<option value="${properties[i].id}">
+                    ${properties[i].address}
+                </option>`
             );
         }
     }
-
-    $("#addWorkspaceBtn").click(addWorkspace);
+}
 
 function addWorkspace() {
 
