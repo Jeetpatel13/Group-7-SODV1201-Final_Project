@@ -35,3 +35,46 @@ router.get("/", (req, res) => {
         res.json(rows);
     });
 });
+
+// Add workspace
+router.post("/", (req, res) => {
+
+    const {
+        propertyId,
+        type,
+        seating,
+        smokingAllowed,
+        availabilityDate,
+        leaseTerm,
+        price
+    } = req.body;
+
+    db.run(
+        `INSERT INTO workspaces
+        (propertyId, type, seating, smokingAllowed, availabilityDate, leaseTerm, price)
+        VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [
+            propertyId,
+            type,
+            seating,
+            smokingAllowed,
+            availabilityDate,
+            leaseTerm,
+            price
+        ],
+        function (err) {
+
+            if (err) {
+                return res.status(500).json({
+                    error: err.message
+                });
+            }
+
+            res.json({
+                message: "Workspace added successfully",
+                id: this.lastID
+            });
+        }
+    );
+});
+
