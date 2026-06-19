@@ -20,6 +20,9 @@ const landingRoutes = require("./routes/landing");
 app.use("/api", registerRoutes); // Directs to POST /api/register and POST /api/login endpoints
 app.use("/api", landingRoutes);  // Directs to GET /api/properties data loop handler
 
+const listingsRouter = require('./routes/listings');
+app.use('/listings', listingsRouter);
+
 app.get("/", (req, res) => {
     res.send("Shared Workspace API Running");
 });

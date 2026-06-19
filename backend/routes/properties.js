@@ -27,7 +27,7 @@ db.run(`CREATE TABLE IF NOT EXISTS properties (
 router.get("/", (req, res) => {
     const ownerId = req.query.ownerId;
 
-    db.all("SELECT * FROM properties WHERE ownerId = " + ownerId, (err, rows) => {
+    db.all("SELECT * FROM properties WHERE ownerId = ?", [ownerId], (err, rows) => {
         if (err) {
             return res.status(500).json({
                 error: err.message
@@ -60,12 +60,34 @@ router.post("/", (req, res) => {
     );
 });
 
+// Edit the property
+router.put("/:id", (req, res) => {
+    const id = req.params.id;
+    const { address, neighborhood, squareFeet, parking, pTransit } = req.body;
+
+    db.run(`UPDATE properties 
+        SET address=?, neighborhood=?, squareFeet=?, parking=?, pTransit=?
+        WHERE id=?`,
+        [address, neighborhood, squareFeet, parking, pTransit, id],
+        function (err) {
+            if (err) {
+                return res.status(500).json({
+                    error: err.message
+                });
+            }
+            res.json({
+                message: "Property updated successfully"
+            });
+        }
+    );
+});
+
 
 // Delete the property according to the id.
 router.delete("/:id", (req, res) => {
     const id = req.params.id;
 
-    db.run("DELETE FROM properties WHERE id = " + id, function (err) {
+    db.run("DELETE FROM properties WHERE id = ?", [id], function (err) {
         if (err) {
             return res.status(500).json({
                 error: err.message
