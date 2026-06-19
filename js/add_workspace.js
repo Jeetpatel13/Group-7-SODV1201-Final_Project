@@ -9,6 +9,7 @@
 // if (!currentUser) {
 //     window.location.href = "index.html";
 // }
+let properties = [];
 
 $(document).ready(function () {
     checkLogin();
