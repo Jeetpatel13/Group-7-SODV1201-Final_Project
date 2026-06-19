@@ -10,11 +10,13 @@
 //     window.location.href = "index.html";
 // }
 let properties = [];
+let currentUser = null;
 
 $(document).ready(function () {
     checkLogin();
 
     $("#ownerName").text(currentUser.firstName);
+    loadProperties();
 
     $(".user-menu").click(function () {
         $(".dropdown").toggle();
