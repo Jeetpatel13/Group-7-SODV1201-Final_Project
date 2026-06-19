@@ -17,7 +17,7 @@ app.use("/properties", propertyRoutes);
 const registerRoutes = require("./routes/register");
 const landingRoutes = require("./routes/landing");
 
-const workspaceRoutes = require("./routes/workspaces");
+const workspaceRoutes = require("./routes/addWorkspaces");
 app.use("/workspaces", workspaceRoutes);
 
 app.use("/api", registerRoutes); // Directs to POST /api/register and POST /api/login endpoints
