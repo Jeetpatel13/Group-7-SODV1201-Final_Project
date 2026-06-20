@@ -105,7 +105,32 @@ router.post("/", (req, res) => {
     );
 });
 
+router.put("/:id", (req, res) => {
+    const id = req.params.id;
+    const { propertyId,
+        type,
+        seating,
+        smokingAllowed,
+        availabilityDate,
+        leaseTerm,
+        price } = req.body;
 
+    db.run(`UPDATE workspaces 
+        SET propertyId=?, type=?, seating=?, smokingAllowed=?, availabilityDate=?,leaseTerm=?,price=?
+        WHERE id=?`,
+        [propertyId, type, seating, smokingAllowed, availabilityDate,leaseTerm,price, id],
+        function (err) {
+            if (err) {
+                return res.status(500).json({
+                    error: err.message
+                });
+            }
+            res.json({
+                message: "Workspace updated successfully"
+            });
+        }
+    );
+});
 
 // Delete workspace
 router.delete("/:id", (req, res) => {
