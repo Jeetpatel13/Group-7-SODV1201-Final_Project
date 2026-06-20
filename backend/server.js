@@ -14,6 +14,9 @@ app.use(express.json());
 const propertyRoutes = require("./routes/properties");
 app.use("/properties", propertyRoutes);
 
+const loginRoutes = require("./routes/login");
+app.use("/api/login", loginRoutes);
+
 const registerRoutes = require("./routes/register");
 const landingRoutes = require("./routes/landing");
 
