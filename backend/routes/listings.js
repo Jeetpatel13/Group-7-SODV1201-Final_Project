@@ -2,6 +2,21 @@ const express = require('express');
 const router = express.Router();
 const db = require("../db");
 
+db.run(`
+    CREATE TABLE IF NOT EXISTS listings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        description TEXT,
+        price REAL NOT NULL
+    )
+`, function (err) {
+    if (err) {
+        console.log("Error creating listings table:", err.message);
+    } else {
+        console.log("Listings table ready!");
+    }
+});
+
 // GET all listings
 router.get('/', (req, res) => {
     db.all('SELECT * FROM listings', [], (err, rows) => {
