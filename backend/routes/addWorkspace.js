@@ -36,6 +36,33 @@ router.get("/", (req, res) => {
     });
 });
 
+// Get single workspace by id
+router.get("/:id", (req, res) => {
+
+    const id = req.params.id;
+
+    db.get(
+        "SELECT * FROM workspaces WHERE id = ?",
+        [id],
+        (err, row) => {
+
+            if (err) {
+                return res.status(500).json({
+                    error: err.message
+                });
+            }
+
+            if (!row) {
+                return res.status(404).json({
+                    error: "Workspace not found"
+                });
+            }
+
+            res.json(row);
+        }
+    );
+});
+
 // Add workspace
 router.post("/", (req, res) => {
 
@@ -77,6 +104,8 @@ router.post("/", (req, res) => {
         }
     );
 });
+
+
 
 // Delete workspace
 router.delete("/:id", (req, res) => {
