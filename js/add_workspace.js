@@ -82,8 +82,7 @@ function addWorkspace() {
         return;
     }
     else if (
-        seatingInput <= 0 ||
-        priceInput < 0
+        seatingInput <= 0 || priceInput < 0
     ) {
         $("#statusMessage").text("Please enter valid values");
         $("#status").show();
