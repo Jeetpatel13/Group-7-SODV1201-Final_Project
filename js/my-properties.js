@@ -30,7 +30,7 @@ function checkLogin() {
 
 // adding all the data to the page using for loop and jQuery. 
 // Used class notes and code given by proffesor in term 1 and 2
-function loadPage() {
+async function loadPage() {
 
     // let myProperties = [];
     // for (let i = 0; i < properties.length; i++) {
@@ -101,18 +101,57 @@ function displayTable(myProperties) {
             "<td>🏢 " + element.neighborhood + "</td>" +
             "<td>" + element.address + "</td>" +
             "<td>" + element.squareFeet + " sqft</td>" +
+            "<td>" + element.parking + "</td>" +
+            "<td>" + element.pTransit + "</td>" +
             "<td>" + propertyWorkspaces.length + "</td>" +
             "<td><span class='badge'>Active</span></td>" +
             "<td>" +
-            "<button class='editBtn' ><a href='add-property.html'>✏️ Edit</a></button>" +
+            "<button class='editBtn' onclick='editProperty(" + element.id + ")'>✏️ Edit</a></button>" +
             "<button class='deleteBtn' onclick='deleteProperty(" + element.id + ")'>🗑️ Delete</button>" +
             "</td>" +
             "</tr>";
     });
 }
 
+async function editProperty(id) {
 
-function deleteProperty(id) {
+    // show prompts with empty fields
+    let newAddress = prompt("Enter new address:");
+    let newNeighborhood = prompt("Enter new neighborhood:");
+    let newSqft = prompt("Enter new square feet:");
+    let newParking = prompt("Parking garage? (yes/no):");
+    let newTransit = prompt("Public transit? (yes/no):");
+
+    // if user clicks cancel on any prompt stop
+    if (!newAddress || !newNeighborhood || !newSqft || !newParking || !newTransit) return;
+
+    // send PUT request to backend
+    const response = await fetch("http://localhost:3000/properties/" + id, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            address: newAddress,
+            neighborhood: newNeighborhood,
+            squareFeet: parseInt(newSqft),
+            parking: newParking,
+            pTransit: newTransit
+        })
+    });
+
+    const data = await response.json();
+
+    if (data.message) {
+        $("#statusMessage").text("Property updated successfully!");
+        loadPage();
+    } else {
+        $("#statusMessage").text("Error: " + data.error);
+    }
+}
+
+
+async function deleteProperty(id) {
 
     // properties = properties.filter(function (element) {
     //     return element.id !== id;
