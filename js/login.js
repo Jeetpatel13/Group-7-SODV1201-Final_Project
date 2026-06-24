@@ -16,37 +16,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Core submission authentication event handler
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        const emailValue = document.getElementById('email').value.trim();
-        const passwordValue = passwordInput.value.trim();
+    const emailValue = document.getElementById('email').value.trim();
+    const passwordValue = passwordInput.value.trim();
 
-        // Modern array check condition matching against active dataset arrays
-        let foundUser = users.find(function (u) {
-            return u.email === emailValue && u.password === passwordValue;
+    try {
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: emailValue,
+                password: passwordValue
+            })
         });
 
-        if (foundUser) {
-            // Success State - Clear errors and write profile object locally
+        const data = await response.json();
+
+        if (data.success) {
+
             errorAlert.style.display = "none";
-            sessionStorage.setItem("currentUser", JSON.stringify(foundUser));
 
-            // Trigger confirmation window prior to executing page state routing
-            alert("Login Successful! Redirecting to your active listings...");
+            sessionStorage.setItem(
+                "currentUser",
+                JSON.stringify(data.user)
+            );
 
-            // Safe contextual directory routing based on individual user role accounts
-            if (foundUser.role === "owner") {
+            alert("Login Successful! Redirecting...");
+
+            if (data.user.role === "owner") {
                 window.location.href = "my-properties.html";
             } else {
                 window.location.href = "listings.html";
             }
+
         } else {
-            // Failure State - Keep container layout bounds and expose error card block
             errorAlert.style.display = "flex";
         }
-    });
+
+    } catch (error) {
+        console.error("Login Error:", error);
+        errorAlert.style.display = "flex";
+    }
+});
 
 });
 
