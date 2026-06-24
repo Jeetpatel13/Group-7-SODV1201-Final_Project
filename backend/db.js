@@ -13,3 +13,16 @@ const db = new sqlite3.Database("database.db", (err) => {
 });
 
 module.exports = db;
+
+
+// Adding test data.
+
+const testUsers = [
+    [1, "John", "Owner", "owner@workspace.com", "password123", "4031234567", "owner"],
+    [2, "Jane", "Coworker", "coworker@workspace.com", "password123", "4037654321", "coworker"]
+];
+
+const sql = `
+        INSERT OR IGNORE INTO users (id, firstName, lastName, email, password, phone, role)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
