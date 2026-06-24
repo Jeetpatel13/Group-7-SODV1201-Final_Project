@@ -36,6 +36,33 @@ router.get("/", (req, res) => {
     });
 });
 
+// Get single workspace by id
+router.get("/:id", (req, res) => {
+
+    const id = req.params.id;
+
+    db.get(
+        "SELECT * FROM workspaces WHERE id = ?",
+        [id],
+        (err, row) => {
+
+            if (err) {
+                return res.status(500).json({
+                    error: err.message
+                });
+            }
+
+            if (!row) {
+                return res.status(404).json({
+                    error: "Workspace not found"
+                });
+            }
+
+            res.json(row);
+        }
+    );
+});
+
 // Add workspace
 router.post("/", (req, res) => {
 
@@ -73,6 +100,33 @@ router.post("/", (req, res) => {
             res.json({
                 message: "Workspace added successfully",
                 id: this.lastID
+            });
+        }
+    );
+});
+
+router.put("/:id", (req, res) => {
+    const id = req.params.id;
+    const { propertyId,
+        type,
+        seating,
+        smokingAllowed,
+        availabilityDate,
+        leaseTerm,
+        price } = req.body;
+
+    db.run(`UPDATE workspaces 
+        SET propertyId=?, type=?, seating=?, smokingAllowed=?, availabilityDate=?,leaseTerm=?,price=?
+        WHERE id=?`,
+        [propertyId, type, seating, smokingAllowed, availabilityDate,leaseTerm,price, id],
+        function (err) {
+            if (err) {
+                return res.status(500).json({
+                    error: err.message
+                });
+            }
+            res.json({
+                message: "Workspace updated successfully"
             });
         }
     );
