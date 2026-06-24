@@ -25,16 +25,43 @@ db.run(`CREATE TABLE IF NOT EXISTS properties (
 
 // Geting all the properties that belongs to the particular owner.
 router.get("/", (req, res) => {
+
     const ownerId = req.query.ownerId;
 
-    db.all("SELECT * FROM properties WHERE ownerId = ?", [ownerId], (err, rows) => {
-        if (err) {
-            return res.status(500).json({
-                error: err.message
-            });
-        }
-        res.json(rows);
-    });
+    if (ownerId) {
+
+        db.all(
+            "SELECT * FROM properties WHERE ownerId = ?",
+            [ownerId],
+            (err, rows) => {
+
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message
+                    });
+                }
+
+                res.json(rows);
+            }
+        );
+
+    } else {
+
+        db.all(
+            "SELECT * FROM properties",
+            [],
+            (err, rows) => {
+
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message
+                    });
+                }
+
+                res.json(rows);
+            }
+        );
+    }
 });
 
 // Posting all the new properties to the database.

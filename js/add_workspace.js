@@ -35,7 +35,9 @@ $(document).ready(function () {
 });
 
 function loadProperties() {
-    fetch("http://localhost:3000/properties")
+    fetch(
+        "http://localhost:3000/properties?ownerId=" + currentUser.id
+    )
         .then(res => res.json())
         .then(data => {
             properties = data;
@@ -50,17 +52,14 @@ function populatePropertyDropdown() {
 
     $("#propertySelect").empty();
 
-    for (let i = 0; i < properties.length; i++) {
+    properties.forEach(property => {
 
-        if (Number(properties[i].ownerId) === Number(currentUser.id)) {
-
-            $("#propertySelect").append(
-                `<option value="${properties[i].id}">
-                    ${properties[i].address}
-                </option>`
-            );
-        }
-    }
+        $("#propertySelect").append(
+            `<option value="${property.id}">
+                ${property.address}
+            </option>`
+        );
+    });
 }
 
 function addWorkspace() {
@@ -99,7 +98,7 @@ function addWorkspace() {
     price: parseFloat(priceInput)
 };
 
-    fetch("http://localhost:3000/addWorkspaces", {
+    fetch("http://localhost:3000/addWorkspace", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
