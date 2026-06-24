@@ -17,51 +17,51 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const emailValue = document.getElementById('email').value.trim();
-    const passwordValue = passwordInput.value.trim();
+        const emailValue = document.getElementById('email').value.trim();
+        const passwordValue = passwordInput.value.trim();
 
-    try {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: emailValue,
-                password: passwordValue
-            })
-        });
+        try {
             const response = await fetch("http://localhost:3000/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: emailValue,
+                    password: passwordValue
+                })
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (data.success) {
+            if (data.success) {
 
-            errorAlert.style.display = "none";
+                errorAlert.style.display = "none";
 
-            sessionStorage.setItem(
-                "currentUser",
-                JSON.stringify(data.user)
-            );
+                sessionStorage.setItem(
+                    "currentUser",
+                    JSON.stringify(data.user)
+                );
 
-            alert("Login Successful! Redirecting...");
+                alert("Login Successful! Redirecting...");
 
-            if (data.user.role === "owner") {
-                window.location.href = "my-properties.html";
+                if (data.user.role === "owner") {
+                    window.location.href = "my-properties.html";
+                } else {
+                    window.location.href = "listings.html";
+                }
+
             } else {
                 window.location.href = "listings.html";
             }
 
-        } else {
+        } catch (error) {
+            console.error("Login Error:", error);
             errorAlert.style.display = "flex";
         }
-
-    } catch (error) {
-        console.error("Login Error:", error);
-        errorAlert.style.display = "flex";
-    }
-});
+    });
 
 });
 
